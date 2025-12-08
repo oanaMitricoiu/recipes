@@ -1,0 +1,21 @@
+import { Component, ElementRef, ViewChild, EventEmitter, Output } from '@angular/core';
+import {Ingredient} from '../../shared/ingredient.model';
+
+@Component({
+  selector: 'app-shopping-edit',
+  templateUrl: './shopping-edit.component.html',
+  styleUrl: './shopping-edit.component.css'
+})
+export class ShoppingEditComponent {
+@ViewChild('nameInput') nameInputRef:ElementRef;
+@ViewChild('amountInput') amountInputRef:ElementRef;
+@Output() ingredientAdded = new EventEmitter<Ingredient>();
+
+onAddItem(){
+  const ingName = this.nameInputRef.nativeElement.value;
+  const amountName = this.amountInputRef.nativeElement.value;
+  const newIngredient = new Ingredient(ingName, amountName);
+
+  this.ingredientAdded.emit(newIngredient);
+}
+}
