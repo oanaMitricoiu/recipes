@@ -14,6 +14,7 @@ export class ShoppingEditComponent  implements OnInit{
 constructor(private slService : ShoppingListService) {
 
 }
+ngOnInit(){}
 
 
 onAddItem(){
